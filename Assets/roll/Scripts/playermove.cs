@@ -27,12 +27,12 @@ public class playermove : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Pickup")) 
-        {
-            other.gameObject.SetActive(false);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Pickup")) 
+    //    {
+    // other.gameObject.SetActive(false);
+    //}
+    //}
 }
-    //Destroy(other.gameObject);
+//Destroy(other.gameObject);
