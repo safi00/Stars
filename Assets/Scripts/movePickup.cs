@@ -38,8 +38,8 @@ public class movePickup : MonoBehaviour
 
         if (eaten)
         {
-            int randomNM1 = ((Random.Range(0, 8) * 5) + 5);
-            int randomNM2 = ((Random.Range(0, 8) * 5) + 5);
+         //   int randomNM1 = ((Random.Range(0, 8) * 5) + 5);
+         //   int randomNM2 = ((Random.Range(0, 8) * 5) + 5);
         }
         else
         {
@@ -47,6 +47,6 @@ public class movePickup : MonoBehaviour
         }
         int randomNM1 = ((Random.Range(0, 8) * 5) + 5);
         int randomNM2 = ((Random.Range(0, 8) * 5) + 5);
-        rb.gameObject.transform.SetPositionAndRotation(new Vector3(randomNM1, 0.9f, randomNM2), rotation);
+        //rb.gameObject.transform.SetPositionAndRotation(new Vector3(randomNM1, 0.9f, randomNM2), rotation);
     }   
 }
