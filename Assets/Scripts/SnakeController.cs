@@ -9,9 +9,9 @@ public class SnakeController : MonoBehaviour
 
     // Settings
     public float MoveSpeed = 5;
-    public float SteerSpeed = 180;
     public float BodySpeed = 5;
-    public int Gap = 100;
+    public float SteerSpeed = 180;
+    public int Gap = 85;
 
     // References
     public GameObject[] BodyPrefabs;
@@ -26,13 +26,6 @@ public class SnakeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
         GrowSnake();
     }
 
@@ -67,19 +60,52 @@ public class SnakeController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (Input.GetKey("space"))
+        {
+            GrowSnake();
+        }
+    }
+
     private void GrowSnake()
     {
-        GameObject tail = Instantiate(Tail);
-        if (BodyParts.Count == 0)
-        {
-            BodyParts.RemoveAt(BodyParts.Count);
-        }
-
         // Instantiate body instance and
         // add it to the list
-        int randomBodyPart = Random.Range(0, 2);
-        GameObject body = Instantiate(BodyPrefabs[randomBodyPart]);
-        BodyParts.Add(body);
+        int count = BodyParts.Count;
+
+        Deletebody();
+        if (count<=0)
+        {
+            int randomBodyPart = Random.Range(0, 2);
+            GameObject body = Instantiate(BodyPrefabs[randomBodyPart]);
+            BodyParts.Add(body);
+        }
+        else
+        {
+            for (int i = 0; i < count; i++)
+            {
+                int randomBodyPart = Random.Range(0, 2);
+                GameObject body = Instantiate(BodyPrefabs[randomBodyPart]);
+                BodyParts.Add(body);
+            }
+        }
+        addTail();
+    }
+    private void addTail()
+    {
+        // Instantiate tail instance and
+        // add it to the list
+        GameObject tail = Instantiate(Tail);
         BodyParts.Add(tail);
     }
+    private void Deletebody()
+    {
+        for (int i = 0; i < BodyParts.Count; i++)
+        {
+            Destroy(BodyParts[i]);
+        }
+        BodyParts.Clear();
+    }
+
 }
