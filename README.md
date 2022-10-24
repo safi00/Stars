@@ -3,7 +3,8 @@
 Educatieve games programmeren 1 
 
 Would recomend checking the Github Projects link: https://bit.ly/3MkaqaI \
-Or the Github Issues: https://github.com/safi00/Stars/issues both show progress but i detail more in Github Issues!
+Or the Github Issues: https://github.com/safi00/Stars/issues \
+Both show progress but i detail more in Github Issues!
 
 I’m going to be making a variation of snake in unity.
 It’s going to be 3d and is currently undecided if I can do multiple levels or just one level.
