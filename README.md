@@ -3,6 +3,7 @@
 Educatieve games programmeren 1 
 
 Would recomend checking the Github Projects link : https://bit.ly/3MkaqaI
+
 Or the Github Issues both show progress but i detail more in Github Issues!
 
 
