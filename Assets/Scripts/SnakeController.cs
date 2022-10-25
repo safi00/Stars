@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SnakeController : MonoBehaviour
 {
-
     // Settings
-    public float MoveSpeed = 5;
-    public float BodySpeed = 5;
-    public float SteerSpeed = 180;
-    public int Gap = 85;
+    [SerializeField] public float MoveSpeed = 5;
+    [SerializeField] public float BodySpeed = 5;
+    [SerializeField] public float SteerSpeed = 180;
+    [SerializeField] public int   Gap = 85;
+    [SerializeField] private bool isGamePaused = false;
 
     // References
     public GameObject[] BodyPrefabs;
@@ -40,23 +41,9 @@ public class SnakeController : MonoBehaviour
         float steerDirection = Input.GetAxis("Horizontal"); // Returns value -1, 0, or 1
         transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
 
-        // Store position history
-        PositionsHistory.Insert(0, transform.position);
-
-        // Move body parts
-        int index = 0;
-        foreach (var body in BodyParts)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Vector3 point = PositionsHistory[Mathf.Clamp(index * Gap, 0, PositionsHistory.Count - 1)];
-
-            // Move body towards the point along the snakes path
-            Vector3 moveDirection = point - body.transform.position;
-            body.transform.position += moveDirection * BodySpeed * Time.deltaTime;
-
-            // Rotate body towards the point along the snakes path
-            body.transform.LookAt(point);
-
-            index++;
+            pauseGameDelay(1,isGamePaused);
         }
     }
 
@@ -66,6 +53,12 @@ public class SnakeController : MonoBehaviour
         {
             GrowSnake();
         }
+        if (Input.GetKey("f"))
+        {
+            readjustHead();
+            GrowSnake();
+        }
+        CheckBody();
     }
 
     private void GrowSnake()
@@ -106,6 +99,64 @@ public class SnakeController : MonoBehaviour
             Destroy(BodyParts[i]);
         }
         BodyParts.Clear();
+    }
+
+    private void CheckBody()
+    {
+        // Store position history
+        PositionsHistory.Insert(0, transform.position);
+
+        // Move body parts
+        int index = 0;
+        foreach (var body in BodyParts)
+        {
+            Vector3 point = PositionsHistory[Mathf.Clamp(index * Gap, 0, PositionsHistory.Count - 1)];
+
+            // Move body towards the point along the snakes path
+            Vector3 moveDirection = point - body.transform.position;
+            body.transform.position += moveDirection * BodySpeed * Time.deltaTime;
+
+            // Rotate body towards the point along the snakes path
+            body.transform.LookAt(point);
+
+            index++;
+        }
+    }
+    private void readjustHead()
+    {
+        transform.GetChild(0).transform.position = transform.position;
+    }
+
+    private void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0f;
+    }
+    private void ResumeGame()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1;
+    }
+    void pauseGameDelay(float delayTime, bool isTheGamePaused)
+    {
+        StartCoroutine(pauseGame(delayTime, isTheGamePaused));
+    }
+
+    IEnumerator pauseGame(float delayTime, bool isTheGamePaused)
+    {
+
+        //Do the action after the delay time has finished.
+        if (isTheGamePaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+
+        //Wait for the specified delay time before continuing.
+        yield return new WaitForSeconds(delayTime);
     }
 
 }
