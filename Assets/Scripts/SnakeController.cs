@@ -12,17 +12,16 @@ public class SnakeController : MonoBehaviour
     [SerializeField] public float BodySpeed = 5;
     [SerializeField] public float SteerSpeed = 180;
     [SerializeField] public int   Gap = 85;
-    [SerializeField] private bool isGamePaused = false;
 
-    // References
-    public GameObject[] BodyPrefabs;
+    // prefab bodies References
+    [SerializeField] public GameObject Head;
+    [SerializeField] public GameObject Tail;
+    [SerializeField] public GameObject[] BodyPrefabs;
+    [SerializeField] public GameObject bodies;
 
     // Lists
     private List<GameObject> BodyParts = new List<GameObject>();
     private List<Vector3> PositionsHistory = new List<Vector3>();
-
-    // References
-    public GameObject Tail;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +32,12 @@ public class SnakeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Move forward
         transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
         // Steer
         float steerDirection = Input.GetAxis("Horizontal"); // Returns value -1, 0, or 1
         transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            pauseGameDelay(1,isGamePaused);
-        }
     }
 
     private void FixedUpdate()
@@ -67,20 +60,27 @@ public class SnakeController : MonoBehaviour
         // add it to the list
         int count = BodyParts.Count;
 
+        //player position
+        float playerPosX = transform.position.x;
+        float playerPosY = transform.position.y;
+        float playerPosZ = transform.position.z;
+
         Deletebody();
         if (count<=0)
         {
             int randomBodyPart = Random.Range(0, 2);
-            GameObject body = Instantiate(BodyPrefabs[randomBodyPart]);
+            GameObject body = Instantiate(BodyPrefabs[randomBodyPart], new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
             BodyParts.Add(body);
+            body.transform.parent = bodies.transform;
         }
         else
         {
             for (int i = 0; i < count; i++)
             {
                 int randomBodyPart = Random.Range(0, 2);
-                GameObject body = Instantiate(BodyPrefabs[randomBodyPart]);
+                GameObject body = Instantiate(BodyPrefabs[randomBodyPart], new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
                 BodyParts.Add(body);
+                body.transform.parent = bodies.transform;
             }
         }
         addTail();
@@ -91,6 +91,7 @@ public class SnakeController : MonoBehaviour
         // add it to the list
         GameObject tail = Instantiate(Tail);
         BodyParts.Add(tail);
+        tail.transform.parent = bodies.transform;
     }
     private void Deletebody()
     {
@@ -127,36 +128,12 @@ public class SnakeController : MonoBehaviour
         transform.GetChild(0).transform.position = transform.position;
     }
 
-    private void PauseGame()
+    private void OnTriggerEnter(Collider other)
     {
-        isGamePaused = true;
-        Time.timeScale = 0f;
-    }
-    private void ResumeGame()
-    {
-        isGamePaused = false;
-        Time.timeScale = 1;
-    }
-    void pauseGameDelay(float delayTime, bool isTheGamePaused)
-    {
-        StartCoroutine(pauseGame(delayTime, isTheGamePaused));
-    }
-
-    IEnumerator pauseGame(float delayTime, bool isTheGamePaused)
-    {
-
-        //Do the action after the delay time has finished.
-        if (isTheGamePaused)
+        if (other.gameObject.CompareTag("Pickup")) 
         {
-            ResumeGame();
+            other.gameObject.SetActive(false);
+            Debug.Log("COIN");
         }
-        else
-        {
-            PauseGame();
-        }
-
-        //Wait for the specified delay time before continuing.
-        yield return new WaitForSeconds(delayTime);
     }
-
 }

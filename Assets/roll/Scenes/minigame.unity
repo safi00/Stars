@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 505432396}
   - component: {fileID: 505432395}
   - component: {fileID: 505432398}
+  - component: {fileID: 505432399}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -740,6 +741,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 911302084}
+  offset: {x: 0, y: 0, z: 0}
+  translateSpeed: 0
+  rotationSpeed: 0
+--- !u!114 &505432399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505432394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3527245a96a3d4f9faef7b2a939c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  offset: {x: 0, y: 10, z: 20}
+  translateSpeed: 5
+  rotationSpeed: 5
 --- !u!1 &511433567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7803116791310506360, guid: 6c0501c5893fd7842bb11900802ac7a0, type: 3}
@@ -779,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random:
   - {fileID: 7803116791310506360, guid: 6c0501c5893fd7842bb11900802ac7a0, type: 3}
-  spawnSwitch: 0
+  spawnSwitch: 1
 --- !u!135 &591424356
 SphereCollider:
   m_ObjectHideFlags: 0

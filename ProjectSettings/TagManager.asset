@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pickup
   - Fence
+  - Button
+  - Coin
   layers:
   - Default
   - TransparentFX
