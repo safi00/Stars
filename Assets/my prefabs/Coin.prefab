@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092377570663210079}
   - component: {fileID: 2041349894514569839}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: pickup_anim_parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2096272216954120799}
   - component: {fileID: 2121365456941072313}
   - component: {fileID: 2113449389147425365}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096003982558074049}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2096354402914250173}
   - component: {fileID: 2121644619970336521}
   - component: {fileID: 2113030133079528665}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: coin_soft_shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,14 +362,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090750908129257145}
-  m_LocalRotation: {x: 0.38268274, y: -0, z: -0, w: 0.9238798}
-  m_LocalPosition: {x: 0, y: 0.522, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2092377570663210079}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45.000004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2122255004172112647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -429,10 +429,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096318474399229071}
+  - component: {fileID: -557804636375065195}
   - component: {fileID: 2156664950484080745}
   - component: {fileID: 1256884647773076776}
-  - component: {fileID: -557804636375065195}
-  m_Layer: 9
+  - component: {fileID: 807231601}
+  m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -455,6 +456,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &-557804636375065195
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091289654026058701}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.09
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
 --- !u!65 &2156664950484080745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -481,19 +498,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpinningSpeed: 1
---- !u!54 &-557804636375065195
-Rigidbody:
+--- !u!114 &807231601
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091289654026058701}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8fb236c1c916a4f90b4d709bca6822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

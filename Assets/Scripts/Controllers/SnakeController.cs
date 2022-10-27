@@ -48,10 +48,26 @@ public class SnakeController : MonoBehaviour
         }
         if (Input.GetKey("f"))
         {
-            readjustHead();
+            ReadjustHead();
             GrowSnake();
         }
         CheckBody();
+    }
+
+    public Vector3 PlayerPostion()
+    {
+        //player position
+        float playerPosX = transform.position.x;
+        float playerPosY = transform.position.y;
+        float playerPosZ = transform.position.z;
+
+        return new Vector3(playerPosX, playerPosY, playerPosZ);
+    }
+
+    public void TelePortPlayer(float posX, float posY, float posZ)
+    {
+        Vector3 newPos = new Vector3(posX, posY, posZ);
+        transform.position = newPos;
     }
 
     private void GrowSnake()
@@ -60,16 +76,13 @@ public class SnakeController : MonoBehaviour
         // add it to the list
         int count = BodyParts.Count;
 
-        //player position
-        float playerPosX = transform.position.x;
-        float playerPosY = transform.position.y;
-        float playerPosZ = transform.position.z;
+        
 
         Deletebody();
         if (count<=0)
         {
             int randomBodyPart = Random.Range(0, 2);
-            GameObject body = Instantiate(BodyPrefabs[randomBodyPart], new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
+            GameObject body = Instantiate(BodyPrefabs[randomBodyPart], PlayerPostion(), Quaternion.identity);
             BodyParts.Add(body);
             body.transform.parent = bodies.transform;
         }
@@ -78,18 +91,18 @@ public class SnakeController : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 int randomBodyPart = Random.Range(0, 2);
-                GameObject body = Instantiate(BodyPrefabs[randomBodyPart], new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
+                GameObject body = Instantiate(BodyPrefabs[randomBodyPart], PlayerPostion(), Quaternion.identity);
                 BodyParts.Add(body);
                 body.transform.parent = bodies.transform;
             }
         }
-        addTail();
+        AddTail();
     }
-    private void addTail()
+    private void AddTail()
     {
         // Instantiate tail instance and
         // add it to the list
-        GameObject tail = Instantiate(Tail);
+        GameObject tail = Instantiate(Tail, PlayerPostion(), Quaternion.identity);
         BodyParts.Add(tail);
         tail.transform.parent = bodies.transform;
     }
@@ -123,17 +136,18 @@ public class SnakeController : MonoBehaviour
             index++;
         }
     }
-    private void readjustHead()
+    private void ReadjustHead()
     {
         transform.GetChild(0).transform.position = transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-        if (other.gameObject.CompareTag("Pickup")) 
-        {
-            other.gameObject.SetActive(false);
-            Debug.Log("COIN");
-        }
+        CoinController.OnCoinCollectable += GrowSnake;
     }
+    private void OnDisable()
+    {
+        CoinController.OnCoinCollectable -= GrowSnake;
+    }
+
 }

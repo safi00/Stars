@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 4410570870077486922}
   - component: {fileID: 4403429883943303730}
   - component: {fileID: 4363144028467749214}
+  - component: {fileID: 1034284704003155335}
   m_Layer: 0
   m_Name: Snake_Green_Head
   m_TagString: Player
@@ -243,8 +244,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.9}
-  m_Center: {x: 0, y: 0.25, z: 0.15}
+  m_Size: {x: 0.6, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!54 &4403429883943303730
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,6 +282,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1034284704003155335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457604836553095408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245a87be8cf07f943a5458497f1f6219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4457623594663893572
 GameObject:
   m_ObjectHideFlags: 0

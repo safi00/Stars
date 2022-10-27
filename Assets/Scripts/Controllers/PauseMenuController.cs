@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] public static bool GameIsPaused = false;
     [SerializeField] public GameObject pauseMenuUI;
