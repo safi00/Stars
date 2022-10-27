@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
         ICollectable col = other.GetComponent<ICollectable>();
         if (col != null)
         {
-            col.collect();
+            col.Collect("COIN");
         }
     }
     private void OnCollisionEnter(Collision collision)

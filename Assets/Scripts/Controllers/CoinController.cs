@@ -6,9 +6,9 @@ using UnityEngine;
 public class CoinController : MonoBehaviour, ICollectable
 {
     public static event Action OnCoinCollectable;
-    public void collect()
+    public void Collect(string Collectable)
     {
-        Debug.Log("COIN");
+        Debug.Log(Collectable);
         Destroy(gameObject);
         OnCoinCollectable?.Invoke();
     }

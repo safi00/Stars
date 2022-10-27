@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 
 public class SnakeController : MonoBehaviour
 {
-    // Settings
+    // Settings / Stats
     [SerializeField] public float MoveSpeed = 5;
     [SerializeField] public float BodySpeed = 5;
     [SerializeField] public float SteerSpeed = 180;
     [SerializeField] public int   Gap = 85;
+    [SerializeField] public static float PlayerHealth;
 
     // prefab bodies References
     [SerializeField] public GameObject Head;
@@ -26,6 +27,7 @@ public class SnakeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerHealth = 3;
         GrowSnake();
     }
 
@@ -139,7 +141,7 @@ public class SnakeController : MonoBehaviour
     private void ReadjustHead()
     {
         transform.GetChild(0).transform.position = transform.position;
-    }
+    }      
 
     private void OnEnable()
     {
