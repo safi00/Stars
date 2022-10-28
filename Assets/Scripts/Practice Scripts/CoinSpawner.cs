@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     // Update is called once per frame
     // Start is called before the first frame update
@@ -19,11 +19,11 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            moveCoin();
+            MoveCoin();
         }
     }
 
-    private void moveCoin()
+    private void MoveCoin()
     {
         int randomNM1 = ((Random.Range(0, 8) * 5) + 5);
         int randomNM2 = ((Random.Range(0, 8) * 5) + 5);

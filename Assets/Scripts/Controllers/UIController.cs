@@ -44,76 +44,77 @@ public class UIController : MonoBehaviour
         Hearts.Add(Heart08);
         Hearts.Add(Heart09);
         Hearts.Add(Heart10);
+        DisplayHealth(3);
         PlayerScoreDisplay.text = String.Format("{0:0000}", PlayerScore);
     }
     void Update()
     {
 
     }
-    public void gainPoints(float points)
+    public void GainPoints(float points)
     {
         PlayerScore += points;
-        updatePoints();
+        UpdatePoints();
     }
-    private void gainCoinPoints()
+    private void GainCoinPoints()
     {
-        gainPoints(10);
+        GainPoints(10);
     }
 
-    private void updatePoints()
+    private void UpdatePoints()
     {
         PlayerScoreDisplay.text = String.Format("{0:0000}", PlayerScore);
     }
-    private void updateHealth()
+    private void UpdateHealth()
     {
         switch (SnakeController.PlayerHealth)
         {
             case <1:
-                Console.WriteLine("GAME OVER");
+                Debug.Log("GAME OVER");
                 DisplayHealth(0);
                 break;
             case 1:
-                Console.WriteLine("01 Heart");
+                Debug.Log("01 Heart");
                 DisplayHealth(1);
                 break;
             case 2:
-                Console.WriteLine("02 Hearts");
+                Debug.Log("02 Hearts");
                 DisplayHealth(2);
                 break;
             case 3:
-                Console.WriteLine("03 Hearts");
+                Debug.Log("03 Hearts");
                 DisplayHealth(3);
                 break;
             case 4:
-                Console.WriteLine("04 Hearts");
+                Debug.Log("04 Hearts");
                 DisplayHealth(4);
                 break;
             case 5:
-                Console.WriteLine("05 Hearts");
+                Debug.Log("05 Hearts");
                 DisplayHealth(5);
                 break;
             case 6:
-                Console.WriteLine("06 Hearts");
+                Debug.Log("06 Hearts");
                 DisplayHealth(6);
                 break;
             case 7:
-                Console.WriteLine("07 Hearts");
+                Debug.Log("07 Hearts");
                 DisplayHealth(7);
                 break;
             case 8:
-                Console.WriteLine("08 Hearts");
+                Debug.Log("08 Hearts");
                 DisplayHealth(8);
                 break;
             case 9:
-                Console.WriteLine("09 Hearts");
+                Debug.Log("09 Hearts");
                 DisplayHealth(9);
                 break;
             case 10:
-                Console.WriteLine("10 Hearts");
+                Debug.Log("10 Hearts");
                 DisplayHealth(10);
                 break;
             case >10:
-                Console.WriteLine("10 Hearts is max! you are rewarded +100 points instead!");
+                Debug.Log("10 Hearts is max! you are rewarded +100 points instead!");
                 DisplayHealth(10);
                 break;
         }
@@ -122,7 +123,7 @@ public class UIController : MonoBehaviour
     {
         for (int i = 0; i < Hearts.Count; i++)
         {
-            Hearts[i].SetActive(true);
+            Hearts[i].SetActive(false);
         }
     }
     private void DisplayHealth(float health)
@@ -136,12 +137,12 @@ public class UIController : MonoBehaviour
 
     private void OnEnable()
     {
-        CoinController.OnCoinCollectable += gainCoinPoints;
-        PowerUPController.OnHeartsCollectable += updateHealth;
+        CoinController.OnCoinCollectable += GainCoinPoints;
+        PowerUPController.OnHeartsCollectable += UpdateHealth;
     }
     private void OnDisable()
     {
-        CoinController.OnCoinCollectable -= gainCoinPoints;
-        PowerUPController.OnHeartsCollectable -= updateHealth;
+        CoinController.OnCoinCollectable -= GainCoinPoints;
+        PowerUPController.OnHeartsCollectable -= UpdateHealth;
     }
 }

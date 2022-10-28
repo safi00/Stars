@@ -19,6 +19,7 @@ public class SnakeController : MonoBehaviour
     [SerializeField] public GameObject Tail;
     [SerializeField] public GameObject[] BodyPrefabs;
     [SerializeField] public GameObject bodies;
+    [SerializeField] public GameObject powerups;
 
     // Lists
     private List<GameObject> BodyParts = new List<GameObject>();
@@ -44,14 +45,19 @@ public class SnakeController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKey(KeyCode.Space))
         {
             GrowSnake();
         }
-        if (Input.GetKey("f"))
+        if (Input.GetKey(KeyCode.F))
         {
             ReadjustHead();
             GrowSnake();
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            GainHearts();
+            Debug.Log("huh");
         }
         CheckBody();
     }
@@ -142,6 +148,18 @@ public class SnakeController : MonoBehaviour
     {
         transform.GetChild(0).transform.position = transform.position;
     }      
+
+    private void GainHearts()
+    {
+        PlayerHealth += 1;
+        Debug.Log(PlayerHealth);
+        ICollectable col = powerups.GetComponent<ICollectable>();
+        if (col != null)
+        {
+            Debug.Log("HEART");
+            col.Collect("HEART");
+        }
+    }
 
     private void OnEnable()
     {

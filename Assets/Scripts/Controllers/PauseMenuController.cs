@@ -17,22 +17,22 @@ public class PauseMenuController : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                resumeGame();
+                ResumeGame();
             }
             else
             {
-                pauseGame();
+                PauseGame();
             }
         }
     }
-    private void resumeGame()
+    public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
         resumeMenuUI.SetActive(true);
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
-    private void pauseGame()
+    private void PauseGame()
     {
         resumeMenuUI.SetActive(false);
         pauseMenuUI.SetActive(true);

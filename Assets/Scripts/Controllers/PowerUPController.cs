@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUPController : MonoBehaviour
+public class PowerUPController : MonoBehaviour, ICollectable
 {
     public static event Action OnPointsCollectable;
     public static event Action OnHeartsCollectable;
