@@ -84,8 +84,6 @@ public class SnakeController : MonoBehaviour
         // add it to the list
         int count = BodyParts.Count;
 
-        
-
         Deletebody();
         if (count<=0)
         {
@@ -113,6 +111,19 @@ public class SnakeController : MonoBehaviour
         GameObject tail = Instantiate(Tail, PlayerPostion(), Quaternion.identity);
         BodyParts.Add(tail);
         tail.transform.parent = bodies.transform;
+    }
+    private GameObject getSnakeHead()
+    {
+        return transform.GetChild(0).gameObject;
+    }
+    private void ReadjustHead()
+    {
+        Destroy(getSnakeHead());
+        // Instantiate tail instance and
+        // add it to the list
+        GameObject head = Instantiate(Head, PlayerPostion(), Quaternion.identity);
+        head.transform.rotation = transform.rotation;
+        head.transform.parent = transform;
     }
     private void Deletebody()
     {
@@ -144,30 +155,27 @@ public class SnakeController : MonoBehaviour
             index++;
         }
     }
-    private void ReadjustHead()
-    {
-        transform.GetChild(0).transform.position = transform.position;
-    }      
-
     private void GainHearts()
     {
         PlayerHealth += 1;
-        Debug.Log(PlayerHealth);
-        ICollectable col = powerups.GetComponent<ICollectable>();
-        if (col != null)
-        {
-            Debug.Log("HEART");
-            col.Collect("HEART");
-        }
+    }
+
+    private void HurtSnake()
+    {
+        PlayerHealth -= 1;
+        Vector3 tenBack = PositionsHistory[(PositionsHistory.Count - 10)];
+        TelePortPlayer(tenBack.x, tenBack.y, tenBack.z);
     }
 
     private void OnEnable()
     {
         CoinController.OnCoinCollectable += GrowSnake;
+        Hurt.OnPlayerPainfulCollision += HurtSnake;
     }
     private void OnDisable()
     {
         CoinController.OnCoinCollectable -= GrowSnake;
+        Hurt.OnPlayerPainfulCollision -= HurtSnake;
     }
 
 }

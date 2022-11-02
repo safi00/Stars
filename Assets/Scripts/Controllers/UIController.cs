@@ -139,10 +139,12 @@ public class UIController : MonoBehaviour
     {
         CoinController.OnCoinCollectable += GainCoinPoints;
         PowerUPController.OnHeartsCollectable += UpdateHealth;
+        Hurt.OnPlayerPainfulCollision += UpdateHealth;
     }
     private void OnDisable()
     {
         CoinController.OnCoinCollectable -= GainCoinPoints;
         PowerUPController.OnHeartsCollectable -= UpdateHealth;
+        Hurt.OnPlayerPainfulCollision -= UpdateHealth;
     }
 }

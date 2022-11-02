@@ -8,6 +8,7 @@ TagManager:
   - Fence
   - Button
   - Coin
+  - Snake
   layers:
   - Default
   - TransparentFX
