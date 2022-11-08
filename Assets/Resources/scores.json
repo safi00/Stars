@@ -1,77 +1,77 @@
 [
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "BUGGY",
-    "score": "950",
+    "score": 950.0,
     "date": "05/29/2020"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "3900",
+    "score": 3900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "1900",
+    "score": 1900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2019"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2016"
   },
   {
-    "name": "Billy",
-    "score": "4900",
+    "name": "mike",
+    "score": 4900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2015"
   },
   {
     "name": "Billy",
-    "score": "900",
+    "score": 900.0,
     "date": "05/29/2012"
   },
   {
-    "name": "Billy",
-    "score": "5900",
+    "name": "NotBilly",
+    "score": 5900.0,
     "date": "05/29/2015"
   }
 ]

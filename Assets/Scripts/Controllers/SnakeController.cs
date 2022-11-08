@@ -41,27 +41,26 @@ public class SnakeController : MonoBehaviour
         // Steer
         float steerDirection = Input.GetAxis("Horizontal"); // Returns value -1, 0, or 1
         transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            GrowSnake();
-        }
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             ReadjustHead();
             GrowSnake();
         }
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             GainHearts();
-            Debug.Log("huh");
+            Debug.Log("" + PlayerHealth);
         }
-        CheckBody();
     }
 
+    private void FixedUpdate()
+    {
+        CheckBody();
+    }    
+    public float getPlayerHealth()
+    {
+        return PlayerHealth;
+    }
     public Vector3 PlayerPostion()
     {
         //player position
@@ -157,14 +156,24 @@ public class SnakeController : MonoBehaviour
     }
     private void GainHearts()
     {
-        PlayerHealth += 1;
+        if (PlayerHealth < 10)
+        {
+            PlayerHealth += 1;
+        }
     }
 
     private void HurtSnake()
     {
-        PlayerHealth -= 1;
-        Vector3 tenBack = PositionsHistory[(PositionsHistory.Count - 10)];
-        TelePortPlayer(tenBack.x, tenBack.y, tenBack.z);
+        if (PlayerHealth >= 2)
+        {
+            PlayerHealth -= 1;
+            Vector3 tenBack = PositionsHistory[(PositionsHistory.Count - 10)];
+            TelePortPlayer(tenBack.x, tenBack.y, tenBack.z);
+        }
+        else
+        {
+            Loader.Load(Loader.Scene.GameOver);
+        }
     }
 
     private void OnEnable()

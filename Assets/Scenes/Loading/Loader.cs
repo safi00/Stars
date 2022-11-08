@@ -11,6 +11,7 @@ public static class Loader
         GameScene,
         Loading,
         MainMenu,
+        GameOver,
     }
     private static Action onLoaderCallback;
     public static void Load(Scene scene)

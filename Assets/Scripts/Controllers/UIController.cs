@@ -25,7 +25,7 @@ public class UIController : MonoBehaviour
 
     //player score
     [SerializeField] public Text PlayerScoreDisplay;
-    [SerializeField] public float PlayerScore;
+    [SerializeField] public static float PlayerScore;
 
     //for easy acces to the hearts
     private List<GameObject> Hearts = new List<GameObject>();
@@ -45,22 +45,34 @@ public class UIController : MonoBehaviour
         Hearts.Add(Heart09);
         Hearts.Add(Heart10);
         DisplayHealth(3);
+        setPoints(0);
         PlayerScoreDisplay.text = String.Format("{0:0000}", PlayerScore);
     }
     void Update()
     {
-
+    }
+    public float getPlayerPoints()
+    {
+        return PlayerScore;
+    }
+    public static string getPlayerScore()
+    {
+        return String.Format("{0:0000}", PlayerScore);
     }
     public void GainPoints(float points)
     {
         PlayerScore += points;
         UpdatePoints();
     }
+    private void setPoints(float points)
+    {
+        PlayerScore = points;
+        Update();
+    }
     private void GainCoinPoints()
     {
         GainPoints(10);
     }
-
     private void UpdatePoints()
     {
         PlayerScoreDisplay.text = String.Format("{0:0000}", PlayerScore);

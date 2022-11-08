@@ -5,10 +5,13 @@ using UnityEngine;
 public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] public static bool GameIsPaused = false;
+    [SerializeField] public static bool gameStart = false;
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject resumeMenuUI;
+    [SerializeField] public GameObject startUI;
     private void Start()
     {
+        showStartinfo();
         pauseMenuUI.SetActive(true);
         pauseMenuUI.SetActive(false);
     }
@@ -26,6 +29,27 @@ public class PauseMenuController : MonoBehaviour
                 PauseGame();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (gameStart)
+            {
+                hideStartinfo();
+            }
+        }
+    }
+    public void hideStartinfo()
+    {
+        gameStart = false;
+        GameIsPaused = false;
+        Time.timeScale = 1f;
+        startUI.SetActive(false);
+    }
+    private void showStartinfo()
+    {
+        gameStart = true;
+        GameIsPaused = true;
+        Time.timeScale = 0f;
+        startUI.SetActive(true);
     }
     public void ResumeGame()
     {
