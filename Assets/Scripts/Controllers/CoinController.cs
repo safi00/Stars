@@ -8,9 +8,12 @@ public class CoinController : MonoBehaviour, ICollectable
     public static event Action OnCoinCollectable;
     public void Collect(string Collectable)
     {
-        Debug.Log(Collectable);
-        Destroy(gameObject);
-        OnCoinCollectable?.Invoke();
+        if (Collectable == "Coin")
+        {
+            Debug.Log(Collectable + "dddd");
+            Destroy(gameObject);
+            OnCoinCollectable?.Invoke();
+        }
     }
 
     private void movecoin() { }

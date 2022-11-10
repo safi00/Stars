@@ -175,7 +175,6 @@ public class SnakeController : MonoBehaviour
             Loader.Load(Loader.Scene.GameOver);
         }
     }
-
     private void OnEnable()
     {
         CoinController.OnCoinCollectable += GrowSnake;
@@ -186,5 +185,4 @@ public class SnakeController : MonoBehaviour
         CoinController.OnCoinCollectable -= GrowSnake;
         Hurt.OnPlayerPainfulCollision -= HurtSnake;
     }
-
 }

@@ -7,6 +7,7 @@ public class PowerUPController : MonoBehaviour, ICollectable
 {
     public static event Action OnPointsCollectable;
     public static event Action OnHeartsCollectable;
+    public static event Action OnQCoinsCollectable;
     public void Collect(string Collectable)
     {
         Debug.Log(Collectable);
@@ -19,7 +20,11 @@ public class PowerUPController : MonoBehaviour, ICollectable
             case "HEART":
                 Console.WriteLine("obtained " + Collectable);
                 OnHeartsCollectable?.Invoke();
-                break;            
+                break;
+            case "QCOIN":
+                Console.WriteLine("obtained " + Collectable);
+                OnQCoinsCollectable?.Invoke();
+                break;
         }
     }
 

@@ -1,7 +1,7 @@
 [
   {
     "questionid": 1,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 2x3?",
     "answer": "6",
     "falseAnswers": [
@@ -12,7 +12,7 @@
   },
   {
     "questionid": 2,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 22x3?",
     "answer": "66",
     "falseAnswers": [
@@ -23,7 +23,7 @@
   },
   {
     "questionid": 3,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 25x3?",
     "answer": "75",
     "falseAnswers": [
@@ -34,7 +34,7 @@
   },
   {
     "questionid": 4,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is (6+3)x6?",
     "answer": "54",
     "falseAnswers": [
@@ -45,7 +45,7 @@
   },
   {
     "questionid": 5,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 66x9?",
     "answer": "594",
     "falseAnswers": [
@@ -56,7 +56,7 @@
   },
   {
     "questionid": 6,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 555/5?",
     "answer": "111",
     "falseAnswers": [
@@ -67,7 +67,7 @@
   },
   {
     "questionid": 7,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 111-111+111?",
     "answer": "111",
     "falseAnswers": [
@@ -78,7 +78,7 @@
   },
   {
     "questionid": 8,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 9x9?",
     "answer": "81",
     "falseAnswers": [
@@ -89,7 +89,7 @@
   },
   {
     "questionid": 9,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 6867+2954?",
     "answer": "9821",
     "falseAnswers": [
@@ -100,7 +100,7 @@
   },
   {
     "questionid": 10,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 888-999?",
     "answer": "-111",
     "falseAnswers": [
@@ -111,7 +111,7 @@
   },
   {
     "questionid": 11,
-    "answertype": "float",
+    "answertype": "int",
     "question": "On a Map, 1 centi meter represents 20 meter. The distance between 2 towns is 6 1/5 cm. How meters are actually between the two towns?",
     "answer": "124",
     "falseAnswers": [
@@ -122,7 +122,7 @@
   },
   {
     "questionid": 12,
-    "answertype": "float",
+    "answertype": "int",
     "question": "Sarah is twice as old as her youngest brother. If the difference between their ages is 15 years. How old is her youngest brother?",
     "answer": "30",
     "falseAnswers": [
@@ -144,7 +144,7 @@
   },
   {
     "questionid": 14,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 1000x0.1?",
     "answer": "100",
     "falseAnswers": [
@@ -155,7 +155,7 @@
   },
   {
     "questionid": 15,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 1000/0.2?",
     "answer": "5000",
     "falseAnswers": [
@@ -166,7 +166,7 @@
   },
   {
     "questionid": 16,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 1000x0.2?",
     "answer": "200",
     "falseAnswers": [
@@ -177,7 +177,7 @@
   },
   {
     "questionid": 17,
-    "answertype": "float",
+    "answertype": "int",
     "question": "If a house is 300 m squared and has a width of 20m, what the length?",
     "answer": "15",
     "falseAnswers": [
@@ -232,7 +232,7 @@
   },
   {
     "questionid": 22,
-    "answertype": "float",
+    "answertype": "int",
     "question": " In his pocket, a boy has 3 red marbles, 4 blue marbles, and 4 green marbles. How many will he have to take out of his pocket to ensure that he has taken out at least one of each color?",
     "answer": "9",
     "falseAnswers": [
@@ -243,13 +243,13 @@
   },
   {
     "questionid": 23,
-    "answertype": "float",
+    "answertype": "int",
     "question": "How many meters is in a kilo meter?",
     "answer": "1000",
     "falseAnswers": [
       "100",
       "10",
-      "0.1"
+      "5"
     ]
   },
   {
@@ -265,18 +265,18 @@
   },
   {
     "questionid": 25,
-    "answertype": "float",
+    "answertype": "int",
     "question": "how many milimeters are in a kilo meter",
     "answer": "1000000",
     "falseAnswers": [
       "1000",
       "10",
-      "they are the same"
+      "1"
     ]
   },
   {
     "questionid": 26,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if Jimmys has 100 coins and gets 40% mor from his dad, how much does he have?",
     "answer": "140",
     "falseAnswers": [
@@ -287,7 +287,7 @@
   },
   {
     "questionid": 27,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if Jimmys has 100 coins and hass to pay 44%, how much does he have?",
     "answer": "56",
     "falseAnswers": [
@@ -298,7 +298,7 @@
   },
   {
     "questionid": 28,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if Jimmys has 100 coins and gains 100% more and then hass to pay 44% of that amount, how much does he have?",
     "answer": "112",
     "falseAnswers": [
@@ -309,7 +309,7 @@
   },
   {
     "questionid": 29,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 124x3?",
     "answer": "375",
     "falseAnswers": [
@@ -331,7 +331,7 @@
   },
   {
     "questionid": 31,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if Donald gives a feather to his 6 friends every week, in year how many feathers did he give out?",
     "answer": "312",
     "falseAnswers": [
@@ -342,7 +342,7 @@
   },
   {
     "questionid": 32,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if a shed has a measuremnt of 125 cubic, how tall is that shed?",
     "answer": "5",
     "falseAnswers": [
@@ -353,7 +353,7 @@
   },
   {
     "questionid": 33,
-    "answertype": "float",
+    "answertype": "int",
     "question": "if a house has a measuremnt of 50x50x5, how much is that cubic?",
     "answer": "12500",
     "falseAnswers": [
@@ -364,7 +364,7 @@
   },
   {
     "questionid": 34,
-    "answertype": "float",
+    "answertype": "int",
     "question": "If Jhonny wants to go to the store with Joost, but Jhonny needs to go get Joost at his house, Joost lives in middle of the route to the store, how much mm would Joost have walked if they came back to Jhonny's home from the store?(the store is 50meters away)",
     "answer": "75",
     "falseAnswers": [
@@ -375,7 +375,7 @@
   },
   {
     "questionid": 35,
-    "answertype": "float",
+    "answertype": "int",
     "question": "If Jhonny wants to go to the store with Joost, but Jhonny needs to go get Joost at his house, Joost lives in middle of the route to the store, how much m would Joost have walked if they came back to Joost's home from the store?(the store is 50meters away)",
     "answer": "50",
     "falseAnswers": [
@@ -386,7 +386,7 @@
   },
   {
     "questionid": 36,
-    "answertype": "float",
+    "answertype": "int",
     "question": "If Jhonny wants to go to the store with Joost, but Jhonny needs to go get Joost at his house, Joost lives in middle of the route to the store, how much m would Joost have walked to get to the store?(the store is 50meters away)",
     "answer": "25",
     "falseAnswers": [
@@ -419,7 +419,7 @@
   },
   {
     "questionid": 39,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 5x20?",
     "answer": "100",
     "falseAnswers": [
@@ -430,7 +430,7 @@
   },
   {
     "questionid": 40,
-    "answertype": "float",
+    "answertype": "int",
     "question": "What is 55x5?",
     "answer": "275",
     "falseAnswers": [

@@ -26,11 +26,18 @@ public class PlayerCollision : MonoBehaviour
         ICollectable col = other.GetComponent<ICollectable>();
         if (col != null)
         {
-            col.Collect("COIN");
-        }
-        if (other.CompareTag("Fence"))
-        {
+            if (other.CompareTag("Coin"))
+            {
+                col.Collect("COIN");
+            }
+            if (other.CompareTag("Fence"))
+            {
             eventCheck(other, "HURT");
+            }
+            if (other.CompareTag("QCoin"))
+            {
+                col.Collect("QCOIN");
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
