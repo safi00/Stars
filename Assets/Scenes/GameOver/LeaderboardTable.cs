@@ -182,6 +182,11 @@ public class LeaderboardTable : MonoBehaviour
         string[] numberString = stringWdecimal.Split('.');
         return numberString[0];
     }
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        Loader.Load(Loader.Scene.GameScene);
+    }
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
