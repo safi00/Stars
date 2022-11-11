@@ -124,12 +124,12 @@ public class SnakeController : MonoBehaviour
     }
 
     /// <summary>
-    /// adding another segment to the snake and since the body comes from the the player position i make the player iFrame for 2 frames
+    /// adding another segment to the snake and since the body comes from the the player position i make the player iFrame for 3 frames and false so it doesnt flash and confuse the player
     /// </summary>
     private void GrowSnake()
     {
 
-        StartCoroutine(Flashing(2, false));
+        StartCoroutine(Flashing(3, false));
         // Instantiate body instance and
         // add it to the list
         int count = BodyParts.Count;
