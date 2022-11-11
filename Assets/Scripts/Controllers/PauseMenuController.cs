@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseMenuController : MonoBehaviour
 {
+    [Header("Pause Menu Essentials")]
     [SerializeField] public static bool GameIsPaused = false;
     [SerializeField] public static bool gameStart = false;
     [SerializeField] public GameObject pauseMenuUI;
@@ -18,6 +19,13 @@ public class PauseMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (gameStart)
+            {
+                hideStartinfo();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -27,13 +35,6 @@ public class PauseMenuController : MonoBehaviour
             else
             {
                 PauseGame();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (gameStart)
-            {
-                hideStartinfo();
             }
         }
     }
@@ -53,17 +54,27 @@ public class PauseMenuController : MonoBehaviour
     }
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false);
-        resumeMenuUI.SetActive(true);
-        GameIsPaused = false;
-        Time.timeScale = 1f;
+        // the player shouldnt unpause the game during the questions Or during the info pop up 
+        bool uiIsActive = !(QuestionsController.GameIsinQuestion || gameStart);
+        if (uiIsActive)
+        {
+            pauseMenuUI.SetActive(false);
+            resumeMenuUI.SetActive(true);
+            GameIsPaused = false;
+            Time.timeScale = 1f;
+        }
     }
     private void PauseGame()
     {
-        resumeMenuUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
-        GameIsPaused = true;
-        Time.timeScale = 0f;
+        // the player shouldnt unpause the game during the questions Or during the info pop up 
+        bool uiIsActive = !(QuestionsController.GameIsinQuestion || gameStart);
+        if (uiIsActive)
+        {
+            resumeMenuUI.SetActive(false);
+            pauseMenuUI.SetActive(true);
+            GameIsPaused = true;
+            Time.timeScale = 0f;
+        }
     }
     public void QuitToMenu()
     {

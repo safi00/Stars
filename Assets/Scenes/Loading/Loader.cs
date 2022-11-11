@@ -14,6 +14,10 @@ public static class Loader
         GameOver,
     }
     private static Action onLoaderCallback;
+    /// <summary>
+    /// here were making sure to load the loading scene in between scenes
+    /// </summary>
+    /// <param name="scene"></param>
     public static void Load(Scene scene)
     {
         Debug.Log(scene.ToString());  

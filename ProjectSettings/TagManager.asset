@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Coin
   - Snake
+  - QCoin
   layers:
   - Default
   - TransparentFX

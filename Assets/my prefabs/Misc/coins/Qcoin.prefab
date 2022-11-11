@@ -225,3 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2a3ca53eaf05543a34a2aa40f59963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnLocationsObjects: {fileID: 2726814881414502390, guid: 8d808bf5d313a234a9479b6437c1350c, type: 3}
+  clip: {fileID: 8300000, guid: f55bb86f6af5d4f49b1e7e9cc12d0794, type: 3}
+  spawnLocations: []

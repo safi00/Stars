@@ -5,19 +5,14 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// This methods invokes the events that most other scripts are subrcibed to.
+    /// </summary>
+    private void eventCheck(Collider collider, String eventName)
     {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-    }
-    private void eventCheck(Collider collider, String eventName) {
         IEvent events = collider.GetComponent<IEvent>();
         if (events != null)
         {
-            Debug.Log(collider.gameObject);
             events.playEvent(eventName);
         }
     }
@@ -30,21 +25,21 @@ public class PlayerCollision : MonoBehaviour
             {
                 col.Collect("COIN");
             }
-            if (other.CompareTag("Fence"))
-            {
-            eventCheck(other, "HURT");
-            }
             if (other.CompareTag("QCoin"))
             {
                 col.Collect("QCOIN");
             }
+        }
+        if (other.CompareTag("Snake"))
+        {
+            eventCheck(other, "BITE");
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Fence"))
         {
-            eventCheck(collision.collider,"HURT");
+            eventCheck(collision.collider, "HURT");
         }
     }
 }

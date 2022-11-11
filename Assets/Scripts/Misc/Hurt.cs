@@ -5,25 +5,16 @@ using UnityEngine;
 
 public class Hurt : MonoBehaviour, IEvent
 {
-    public static event Action OnPlayerPainfulCollision;
+    /// <summary>
+    /// This methods invokes the events that most other scripts are subrcibed to.
+    /// </summary>
+    public static event Action OnPlayerWallHitCollision;
     public void playEvent(string eventName)
     {
         if (eventName == "HURT")
         {
             Debug.Log(eventName);
-            OnPlayerPainfulCollision?.Invoke();
+            OnPlayerWallHitCollision?.Invoke();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

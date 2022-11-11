@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    //UI Panel
+    [Header("UI Panel")]
     [SerializeField] public GameObject UIPanelContainer;
 
-    // player health / hearts
+    [Header("player health / hearts")]
     [SerializeField] public GameObject Heart01;
     [SerializeField] public GameObject Heart02;
     [SerializeField] public GameObject Heart03;
@@ -23,11 +23,14 @@ public class UIController : MonoBehaviour
     [SerializeField] public GameObject Heart09;
     [SerializeField] public GameObject Heart10;
 
-    //player score
+    [Header("Player Score & Multiplier")]
     [SerializeField] public Text PlayerScoreDisplay;
+    [SerializeField] public GameObject PlayerScoreMultiplierDisplay;
+    [SerializeField] public Text PlayerScoreDisplayText;
     [SerializeField] public static float PlayerScore;
+    [SerializeField] public static double PlayerScoreMultiplier;
 
-    //for easy acces to the hearts
+    [Header("Easy access to hearts")]
     private List<GameObject> Hearts = new List<GameObject>();
 
 
@@ -50,6 +53,13 @@ public class UIController : MonoBehaviour
     }
     void Update()
     {
+        UpdateHealth();
+        UpdatePoints();
+    }
+    private void setPoints(float points)
+    {
+        PlayerScore = points;
+        Update();
     }
     public float getPlayerPoints()
     {
@@ -61,21 +71,25 @@ public class UIController : MonoBehaviour
     }
     public void GainPoints(float points)
     {
-        PlayerScore += points;
+        float gainedpoints = (float)(points * PlayerScoreMultiplier);
+        PlayerScore += gainedpoints;
         UpdatePoints();
     }
-    private void setPoints(float points)
-    {
-        PlayerScore = points;
-        Update();
-    }
+    /// <summary>
+    /// The Method below is meant only for coins and it adds points for the player
+    /// </summary>
     private void GainCoinPoints()
     {
-        GainPoints(10);
+        GainPoints(100);
     }
     private void UpdatePoints()
     {
         PlayerScoreDisplay.text = String.Format("{0:0000}", PlayerScore);
+    }
+    private void UpdateMultiplier()
+    {
+        PlayerScoreMultiplierDisplay.SetActive(true);
+        PlayerScoreDisplayText.text = (100 * PlayerScoreMultiplier) + "%";
     }
     private void UpdateHealth()
     {
@@ -86,47 +100,36 @@ public class UIController : MonoBehaviour
                 DisplayHealth(0);
                 break;
             case 1:
-                Debug.Log("01 Heart");
                 DisplayHealth(1);
                 break;
             case 2:
-                Debug.Log("02 Hearts");
                 DisplayHealth(2);
                 break;
             case 3:
-                Debug.Log("03 Hearts");
                 DisplayHealth(3);
                 break;
             case 4:
-                Debug.Log("04 Hearts");
                 DisplayHealth(4);
                 break;
             case 5:
-                Debug.Log("05 Hearts");
                 DisplayHealth(5);
                 break;
             case 6:
-                Debug.Log("06 Hearts");
                 DisplayHealth(6);
                 break;
             case 7:
-                Debug.Log("07 Hearts");
                 DisplayHealth(7);
                 break;
             case 8:
-                Debug.Log("08 Hearts");
                 DisplayHealth(8);
                 break;
             case 9:
-                Debug.Log("09 Hearts");
                 DisplayHealth(9);
                 break;
             case 10:
-                Debug.Log("10 Hearts");
                 DisplayHealth(10);
                 break;
             case >10:
-                Debug.Log("10 Hearts is max! you are rewarded +100 points instead!");
                 DisplayHealth(10);
                 break;
         }
@@ -146,17 +149,24 @@ public class UIController : MonoBehaviour
             Hearts[i].SetActive(true);
         }
     }
-
+    /// <summary>
+    /// This methods are here to subcribe to events
+    /// so when a coin gets collected all the other scripts know to tun a method
+    /// </summary>
     private void OnEnable()
     {
         CoinController.OnCoinCollectable += GainCoinPoints;
-        PowerUPController.OnHeartsCollectable += UpdateHealth;
-        Hurt.OnPlayerPainfulCollision += UpdateHealth;
+        Heart.OnHeartGained += UpdateHealth;
+        Hurt.OnPlayerWallHitCollision += UpdateHealth;
+        Speed.OnSpeedGained += UpdateMultiplier;
+        PowerUPController.OnQCoinsCollectable += GainCoinPoints;
     }
     private void OnDisable()
     {
         CoinController.OnCoinCollectable -= GainCoinPoints;
-        PowerUPController.OnHeartsCollectable -= UpdateHealth;
-        Hurt.OnPlayerPainfulCollision -= UpdateHealth;
+        Heart.OnHeartGained -= UpdateHealth;
+        Hurt.OnPlayerWallHitCollision -= UpdateHealth;
+        Speed.OnSpeedGained -= UpdateMultiplier;
+        PowerUPController.OnQCoinsCollectable -= GainCoinPoints;
     }
 }

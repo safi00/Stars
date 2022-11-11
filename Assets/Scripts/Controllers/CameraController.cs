@@ -14,12 +14,17 @@ public class CameraController : MonoBehaviour
         HandleTranslation();
         HandleRotation();
     }
-
+    /// <summary>
+    /// distance between player and camera
+    /// </summary>
     private void HandleTranslation()
     {
         var targetPos = Player.transform.TransformPoint(offset);
         transform.position = Vector3.Lerp(transform.position, targetPos, translateSpeed * Time.deltaTime);
     }
+    /// <summary>
+    /// camera rotation with the player transform
+    /// </summary>
     private void HandleRotation() 
     {
         var direction = Player.transform.position - transform.position;

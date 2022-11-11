@@ -127,8 +127,9 @@ GameObject:
   - component: {fileID: 7153846183665732257}
   - component: {fileID: 7112955497060606305}
   - component: {fileID: 7116390531090399661}
+  - component: {fileID: 8567512911904829075}
   m_Layer: 9
-  m_Name: EggLife
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +142,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7157028682964459617}
-  m_LocalRotation: {x: -0, y: -0.14055431, z: -0, w: 0.990073}
+  m_LocalRotation: {x: 0, y: -0.14055572, z: 0, w: 0.9900728}
   m_LocalPosition: {x: 4.5, y: 0, z: 21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -182,6 +183,18 @@ MonoBehaviour:
   animSpeed: 2
   enabledRotation: 0
   animChildOnlyMoving: {fileID: 0}
+--- !u!114 &8567512911904829075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157028682964459617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4395446a57679140b59f9941dcbf8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7157187357145060307
 GameObject:
   m_ObjectHideFlags: 0

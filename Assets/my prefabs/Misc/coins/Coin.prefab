@@ -510,3 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8fb236c1c916a4f90b4d709bca6822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: a8bf5362500f24033b16af6a460b2f3f, type: 3}
+  spawnLocationsObjects: {fileID: 2726814881414502390, guid: 8d808bf5d313a234a9479b6437c1350c, type: 3}
+  spawnLocations: []

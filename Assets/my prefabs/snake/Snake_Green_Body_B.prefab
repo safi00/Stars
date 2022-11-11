@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 7862469684277814110}
   - component: {fileID: 7869645074348750878}
   - component: {fileID: 7827301834594754810}
-  - component: {fileID: -6661611817730732667}
+  - component: {fileID: -2513414675769152919}
   m_Layer: 0
   m_Name: Snake_Green_Body_B
   m_TagString: Snake
@@ -368,7 +368,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-6661611817730732667
+--- !u!114 &-2513414675769152919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,6 +377,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7922741609634361540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc6bb8e62979685499242447fcdbebb3, type: 3}
+  m_Script: {fileID: 11500000, guid: ee84b443eb8346445b5fd81bc1da893e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

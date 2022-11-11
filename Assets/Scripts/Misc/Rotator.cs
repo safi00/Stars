@@ -7,9 +7,6 @@ public class Rotator : MonoBehaviour
     // Settings
     [SerializeField] public double SpinningSpeed;
 
-    private void Start()
-    {        
-    }
     // Update is called once per frame
     void Update()
     {
